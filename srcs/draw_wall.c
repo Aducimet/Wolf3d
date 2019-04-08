@@ -6,7 +6,7 @@
 /*   By: aducimet <aducimet@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/03/19 18:28:28 by aducimet     #+#   ##    ##    #+#       */
-/*   Updated: 2019/04/08 07:32:28 by aducimet    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/04/08 10:16:41 by aducimet    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,6 +23,14 @@ void	put_pixel_tex(t_wolf *wolf, double x, double y,
 					t_img texture)
 {
 	wolf->tex_y = ((y - wolf->win_size_y * 0.5f + wolf->rayheight * 0.5f) * texture.height) / wolf->rayheight - 0.5;
+	if ((x >= 0 && x <= wolf->win_size_x) && (y >= 0 && y <= wolf->win_size_y))
+		wolf->img.tab[((int)y * wolf->win_size_x + (int)x)] = texture.tab[(texture.height * (int)wolf->tex_y + (int)wolf->tex_x)];
+}
+
+void	put_pixel_sky(t_wolf *wolf, double x, double y,
+					t_img texture)
+{	
+	wolf->tex_y = ((y - wolf->win_size_y * 0.1 + wolf->rayheight * 0.1) * texture.height) / wolf->rayheight - 0.1;
 	if ((x > 0 && x < wolf->win_size_x) && (y > 0 && y < wolf->win_size_y))
 		wolf->img.tab[((int)y * wolf->win_size_x + (int)x)] = texture.tab[(texture.height * (int)wolf->tex_y + (int)wolf->tex_x)];
 }
@@ -41,12 +49,7 @@ void				draw_wall(t_wolf *wolf, int x)
 	wolf->tex_x -= floor(wolf->tex_x);
 	wolf->tex_x *= (double)wolf->tex.walls[wolf->tex.id].height;
 	while (++tmp <= wolf->start)
-	{	
-		if(wolf->b_color == -1)
-			put_pixel_tex(wolf, x, tmp, wolf->tex.walls[wolf->tex.id]);
-		else
-			put_pixel(wolf, x, tmp, wolf->mapcolor[3][wolf->hours]);
-	}
+		put_pixel(wolf, x, tmp, wolf->mapcolor[3][wolf->hours]);
 	while (++tmp <= wolf->end)
 	{
 		if (wolf->b_color == -1)
