@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_color.c                                       .::    .:/ .      .::   */
+/*   hook_2.c                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: aducimet <aducimet@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/03/19 16:35:58 by aducimet     #+#   ##    ##    #+#       */
-/*   Updated: 2019/04/08 10:59:42 by aducimet    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/04/09 15:45:41 by aducimet     #+#   ##    ##    #+#       */
+/*   Updated: 2019/04/09 15:54:01 by aducimet    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-void		set_colors(t_wolf *wolf)
+int		ft_key_hook_press_hours(int keycode, t_wolf *wolf)
 {
-	if (wolf->b_color == 1)
+	if (keycode == 17 && wolf->hours == 0)
 	{
-		wolf->color = wolf->mapcolor[wolf->type][wolf->color_select];
+		wolf->hours = 1;
+		return (1);
 	}
-	else
+	if (keycode == 17 && wolf->hours == 1)
 	{
-		if (wolf->type == 0 && wolf->raydir.x > 0)
-			wolf->tex.id = 0;
-		if (wolf->type == 0 && wolf->raydir.x < 0)
-			wolf->tex.id = 1;
-		if (wolf->type == 1 && wolf->raydir.y > 0)
-			wolf->tex.id = 2;
-		if (wolf->type == 1 && wolf->raydir.y < 0)
-			wolf->tex.id = 3;
+		wolf->hours = 0;
+		return (1);
 	}
+	return (1);
 }

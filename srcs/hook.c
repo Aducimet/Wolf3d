@@ -6,7 +6,7 @@
 /*   By: aducimet <aducimet@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/03/11 19:42:03 by aducimet     #+#   ##    ##    #+#       */
-/*   Updated: 2019/04/08 07:27:56 by aducimet    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/04/09 16:30:13 by aducimet    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,13 +21,13 @@ void		move_player(t_wolf *wolf, const int dir)
 			wolf->dir.x * wolf->speed)] == 0)
 			wolf->playerpos.x += wolf->dir.x * wolf->speed;
 		if (wolf->map[(int)(wolf->playerpos.y + wolf->dir.y *
-			wolf->speed)][(int)(wolf->playerpos.x)]== 0)
+			wolf->speed)][(int)(wolf->playerpos.x)] == 0)
 			wolf->playerpos.y += wolf->dir.y * wolf->speed;
 	}
 	if (dir == -1)
 	{
 		if (wolf->map[(int)(wolf->playerpos.y)][(int)(wolf->playerpos.x
-			- wolf->dir.x * wolf->speed)]== 0)
+			- wolf->dir.x * wolf->speed)] == 0)
 			wolf->playerpos.x -= wolf->dir.x * wolf->speed;
 		if (wolf->map[(int)(wolf->playerpos.y - wolf->dir.y
 			* wolf->speed)][(int)(wolf->playerpos.x)] == 0)
@@ -61,8 +61,9 @@ void		move_cam(t_wolf *wolf, const int dir)
 	}
 }
 
-int ft_key_hook_press(int keycode, t_wolf *wolf)
+int			ft_key_hook_press(int keycode, t_wolf *wolf)
 {
+	ft_key_hook_press_hours(keycode, wolf);
 	if (keycode == 126)
 		wolf->up = 1;
 	if (keycode == 125)
@@ -84,21 +85,10 @@ int ft_key_hook_press(int keycode, t_wolf *wolf)
 		wolf->color_select--;
 	if (keycode == 49)
 		wolf->b_color *= -1;
-	if (keycode == 17 && wolf->hours == 0)
-	{	
-		wolf->hours = 1;
-		return (1);
-	}
-	if (keycode == 17 && wolf->hours == 1)
-	{
-		wolf->hours = 0;
-		return (1);
-	}
 	return (1);
 }
 
-
-int	ft_key_hook_release(int keycode, t_wolf *wolf)
+int			ft_key_hook_release(int keycode, t_wolf *wolf)
 {
 	if (keycode == 126)
 		wolf->up = 0;

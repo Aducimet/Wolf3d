@@ -6,7 +6,7 @@
 /*   By: aducimet <aducimet@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/04 15:01:03 by calin        #+#   ##    ##    #+#       */
-/*   Updated: 2019/04/05 18:24:40 by aducimet    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/04/09 15:44:22 by aducimet    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -86,7 +86,6 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *str);
 char				*ft_itoa(int nb);
 char				*ft_strnrcpy(char *dest, const char *src, size_t len);
-
 
 size_t				ft_index(const char *str, int c);
 size_t				ft_strlen(const char *str);

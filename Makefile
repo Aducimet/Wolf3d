@@ -6,7 +6,7 @@
 #    By: aducimet <aducimet@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/13 16:45:37 by aducimet     #+#   ##    ##    #+#        #
-#    Updated: 2019/04/03 19:48:12 by aducimet    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/04/09 15:49:10 by aducimet    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -23,6 +23,7 @@ SRCS =	srcs/main.c \
 		srcs/draw.c \
 		srcs/draw_wall.c \
 		srcs/hud.c \
+		srcs/hook_2.c \
 
 OBJ = $(SRCS:.c=.o)
 
