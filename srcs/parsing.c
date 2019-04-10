@@ -6,7 +6,7 @@
 /*   By: aducimet <aducimet@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/03/12 16:42:02 by aducimet     #+#   ##    ##    #+#       */
-/*   Updated: 2019/04/09 16:29:47 by aducimet    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/04/10 17:09:22 by aducimet    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,13 +19,12 @@ void	ft_get_info_map(t_wolf *wolf)
 	int	y;
 	int	flag;
 
-	x = 0;
-	y = 0;
+	y = -1;
 	flag = 0;
-	while (y++ < wolf->map_size_y)
+	while (++y < wolf->map_size_y)
 	{
-		x = 0;
-		while (x++ < wolf->map_size_x)
+		x = -1;
+		while (++x < wolf->map_size_x)
 		{
 			if (wolf->map[y][x] == 3)
 			{
